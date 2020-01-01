@@ -7,9 +7,8 @@ app = Flask(__name__)
 @app.route("/monthly-fee", methods=['GET'])
 def monthly_fee():
     request_obj = Request(request.args.get("plan"), request.args.get("entame_free"))
-    plan = request_obj.get_plan()
-
-    response = {"monthly_fee": plan.value.get_value()}
+    contract = request_obj.get_contract()
+    response = {"monthly_fee": contract.月額を取得()}
 
     return jsonify(response)
 
